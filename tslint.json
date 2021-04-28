@@ -121,7 +121,11 @@
         "check-typecast"
       ]
     },
-    "component-class-suffix": true,
+    "component-class-suffix": [
+      true,
+       "Components",
+        "Page"
+      ],
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "no-conflicting-lifecycle": true,
