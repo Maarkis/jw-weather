@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="search-container">
+    <div class="form-group">
+      <label>Pesquisar</label>
+      <div>
+        <input class="form-control" [formControl]="searchControl" />
+        <button
+          class="btn btn-dark"
+          [disabled]="!searchControl.valid"
+          (click)="doSearch()"
+        >
+          Pesquisar
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Pesquisar com <i>autocomplete</i></label>
+    </div>
+  </div>
+
+  <app-loader *ngIf="loading$ | async"></app-loader>
+  <div *ngIf="!(loading$ | async) && !(error$ | async)">
+    <app-current-weather
+      [cityWeather]="cityWeather"
+      (toggleBookmark)="onToggleBookmark()"
+    ></app-current-weather>
+  </div>
+  <div *ngIf="!(loading$ | async) && (error$ | async)">
+    <a>Tentar novamente...</a>
+  </div>
+</div>

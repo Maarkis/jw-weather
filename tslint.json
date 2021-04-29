@@ -123,8 +123,8 @@
     },
     "component-class-suffix": [
       true,
-       "Components",
-        "Page"
+       "Component",
+       "Page"
       ],
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -143,13 +143,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "app",      
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "app",      
       "kebab-case"
     ]
   }

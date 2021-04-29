@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  apiUrlOpenWeather: 'https://api.openweathermap.org/data/2.5',
+  urlImageOpenWeather: 'http://openweathermap.org/img/wn/$icon@2x.png',
   apiKeyOpenWeather: '6fc17d5e7e0f4af560a849e2949eddfe',
 };
 

@@ -1,0 +1,14 @@
+<div class="card" *ngIf="cityWeather">
+  <div class="card-body">
+    <h2>{{ cityName }}</h2>
+    <app-detailed-weather
+      [weather]="cityWeather.weather"
+    ></app-detailed-weather>
+    <div class="card-actions">
+      <a class="card-link" (click)="onToggleBookMark()"
+        >Adicionar aos favoritos</a
+      >
+      <a routerLink="/details" class="card-link">Ver detalhes</a>
+    </div>
+  </div>
+</div>
