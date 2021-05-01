@@ -1,6 +1,6 @@
 import { Units } from '../models/units.enum';
 
-export function unitToSymbol(unit: Units): string {
+export function unitToSymbol(unit?: Units): string {
   switch (unit) {
     case Units.Metric:
       return '˚C';
@@ -8,5 +8,7 @@ export function unitToSymbol(unit: Units): string {
       return '˚F';
     case Units.SI:
       return 'K';
+    default:
+      return '˚C';
   }
 }

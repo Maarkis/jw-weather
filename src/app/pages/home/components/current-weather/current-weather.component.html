@@ -1,14 +1,25 @@
-<div class="card" *ngIf="cityWeather">
+<div class="card" *ngIf="cityWeather && unit">
   <div class="card-body">
     <h2>{{ cityName }}</h2>
     <app-detailed-weather
+      [unit]="unit"
       [weather]="cityWeather.weather"
     ></app-detailed-weather>
     <div class="card-actions">
-      <a class="card-link" (click)="onToggleBookMark()"
-        >Adicionar aos favoritos</a
+      <a class="card-link" (click)="onToggleBookMark()">
+        {{ isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos" }}
+      </a>
+
+      <a
+        class="card-link"
+        routerLink="/details"
+        [queryParams]="{
+          lat: cityWeather.city.coord.lat,
+          lon: cityWeather.city.coord.lon
+        }"
       >
-      <a routerLink="/details" class="card-link">Ver detalhes</a>
+        Ver detalhes
+      </a>
     </div>
   </div>
 </div>

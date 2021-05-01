@@ -9,7 +9,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { reducers } from './shared/states/app.reducer';
+import { CustomRouterSerializer } from './shared/states/router/router.reducer';
 
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+
+moment.locale('pt-br');
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,12 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     HomeModule,
     BookmarksModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({ serializer: CustomRouterSerializer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

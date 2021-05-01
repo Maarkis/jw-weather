@@ -6,6 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Units } from 'src/app/shared/models/units.enum';
 
 import { CityWeather } from 'src/app/shared/models/weather.model';
 
@@ -17,6 +18,8 @@ import { CityWeather } from 'src/app/shared/models/weather.model';
 })
 export class CurrentWeatherComponent {
   @Input() cityWeather!: CityWeather | null;
+  @Input() isFavorite!: boolean | null;
+  @Input() unit!: Units | null;
   @Output() toggleBookmark = new EventEmitter();
 
   get cityName(): string {

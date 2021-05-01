@@ -8,12 +8,16 @@ import { HomeEffects } from './states/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { HomePage } from './containers/home/home.page';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.component';
 @NgModule({
-  declarations: [HomePage, CurrentWeatherComponent],
+  declarations: [HomePage, CurrentWeatherComponent, UnitSelectorComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    RouterModule,
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
     ComponentsModule,
